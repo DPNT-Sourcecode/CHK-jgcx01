@@ -36,10 +36,10 @@ class CheckoutSolution:
         total = 0
         
         #Adding free_item_offers
-        for sku, (required_qty_sku, offer_sku, free_qty_sku) in self.free_items_offer.items():
-            if sku in count and offer_sku in count:
-                offer_times = count[sku] // required_qty_sku
-                count[sku] = max(0, count[offer_sku] - offer_times * free_qty_sku)
+        for trigger_sku, (required_qty, target_sku, free_qty) in self.free_items_offer.items():
+            if trigger_sku in count and target_sku in count:
+                offer_times = count[trigger_sku] // required_qty
+                count[target_sku] = max(0, count[target_sku] - offer_times * free_qty)
         
         #Calculatiung the total cost with offers and applying multi-buy offers
         for sku, qty in count.items():
@@ -84,4 +84,5 @@ if __name__ == "__main__":
     #unittest.main()
     
     '''
+
 
