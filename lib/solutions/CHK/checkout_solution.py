@@ -16,7 +16,7 @@ class CheckoutSolution:
     # skus = unicode string
     def checkout(self, skus):
         #Checking to see if input is a string and upper case
-        if not isinstance(skus,str) or skus == "" or not skus.alpha():
+        if not isinstance(skus,str):
             return -1
 
         skus = skus.upper()
@@ -26,7 +26,7 @@ class CheckoutSolution:
         for sku in skus:
             if sku not in self.price:
                 return -1
-            count[sku] =- count.get(sku, 0)+1
+            count[sku] = count.get(sku, 0)+1
         
         total = 0
         
@@ -38,7 +38,7 @@ class CheckoutSolution:
                 #Applyiung offer as may times as possible
                 offer_groups = qty // offer_qty
                 remainder = qty % offer_qty
-                total + offer_groups * offer_price + remainder * price # if there is no offer then its regualr pricing 
+                total += offer_groups * offer_price + remainder * price # if there is no offer then its regualr pricing 
             else:
                 total += qty * price 
                 
@@ -73,4 +73,5 @@ if __name__ == "__main__":
     #unittest.main()
     
     '''
+
 
