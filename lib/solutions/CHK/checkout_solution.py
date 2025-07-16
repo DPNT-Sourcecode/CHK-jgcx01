@@ -80,7 +80,7 @@ class CheckoutSolution:
     
 
     #Unit Testing
-
+'''
 if __name__ == "__main__":
     import unittest
     class TestCheckoutSolutuon(unittest.TestCase):
@@ -139,5 +139,6 @@ if __name__ == "__main__":
             
             
     #unittest.main()
+'''
 
 
