@@ -1,9 +1,9 @@
 
 class CheckoutSolution:
     
-    special_offers = {
-        'A': (3, 130),
-        'B': (2, 45)
+    multi_special_offers = {
+        'A': [(5,200),(3, 130)],
+        'B': [(2, 45)]
     }
     
     price = {
@@ -11,6 +11,11 @@ class CheckoutSolution:
         'B': 30,
         'C': 20,
         'D': 15,
+        'E': 40,
+    }
+    
+    free_items_offer={
+        'E': (2, 'B', 1)
     }
 
     # skus = unicode string
@@ -73,6 +78,3 @@ if __name__ == "__main__":
     #unittest.main()
     
     '''
-
-
-
