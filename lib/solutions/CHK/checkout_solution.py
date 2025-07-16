@@ -12,11 +12,12 @@ class CheckoutSolution:
         'C': 20,
         'D': 15,
         'E': 40,
-        'F': 10
+        'F': 10,
     }
     
     free_items_offer={
-        'E': (2, 'B', 1)
+        'E': (2, 'B', 1),
+        'F': (2, 'F', 1),
     }
 
     # skus = unicode string
@@ -39,8 +40,8 @@ class CheckoutSolution:
         #Adding free_item_offers
         for trigger_sku, (required_qty, target_sku, free_qty) in self.free_items_offer.items():
             if trigger_sku in count and target_sku in count:
-                offer_times = count[trigger_sku] // required_qty
-                count[target_sku] = max(0, count[target_sku] - offer_times* free_qty)
+                free_items = (count[trigger_sku] // required_qty) * free_qty
+                count[target_sku] = max(0, count[target_sku] - free_items)
                 
         for sku, qty in count.items():
             if sku in self.multi_special_offers:
@@ -96,3 +97,4 @@ if __name__ == "__main__":
             
     #unittest.main()
     '''
+
