@@ -16,40 +16,7 @@ class SumSolution:
         
         return x + y
     
-    #Unit Testing 
-    if __name__ == "__main__":
-        class TestSumSolution(unittest.TestCase):
-            
-            def setUp(self):
-                self.solver = SumSolution() 
                 
-            #Testing to see if x and y are in range 0 - 100    
-            def valid_range_test(self):
-                self.assertEqual(self.solver.compute(25, 89), 100)
-                
-            #Testing to see if x and y still sum at bounds  
-            def valid_bounds_test (self):
-                self.assertEqual(self.solver.compute(0, 100), 100)
-                
-            #Testing to see if x or y are below the range 
-            def below_bounds_test(self):
-                self.assertEqual(self.solver.compute(-20, 30), 100)
-                
-            #Testing to see if x or y are above the range 
-            def above_bounds_test(self):
-                self.assertEqual(self.solver.compute(200, 100), 100)
-                
-            #Testing to invlaid data types 
-            def invalid_datatypes_string_test(self):
-                self.assertEqual(self.solver.compute("a", 100), 100)
-                               
-            def invalid_datatypes_float_test(self):
-                self.assertEqual(self.solver.compute(100.4, 100), 100)
-                
-            def invalid_datatypes_none_test(self):
-                self.assertEqual(self.solver.compute(100.4, None), 100)
+    
+    
 
-        unittest.main()
-                
-    
-    

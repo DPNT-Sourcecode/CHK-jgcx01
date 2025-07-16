@@ -41,6 +41,7 @@ class CheckoutSolution:
                 total + offer_groups * offer_price + remainder * price # if there is no offer then its regualr pricing 
             else:
                 total += qty * price 
+                
         return total 
     
     
