@@ -19,7 +19,7 @@ class CheckoutSolution:
         if not isinstance(skus,str):
             return -1
 
-        skus = skus.upper()
+        total = 0
         count = {}
         
         #Looping to count the frequency of skus
@@ -73,5 +73,6 @@ if __name__ == "__main__":
     #unittest.main()
     
     '''
+
 
 
