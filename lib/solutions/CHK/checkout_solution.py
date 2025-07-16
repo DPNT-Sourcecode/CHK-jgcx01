@@ -1,6 +1,7 @@
 
 class CheckoutSolution:
     
+    # Dictionary Storing all the offers for sku
     multi_special_offers = {
         'A': [(5,200),(3, 130)],
         'B': [(2, 45)],
@@ -11,6 +12,7 @@ class CheckoutSolution:
         'V': [(3, 130), (2, 90)]
     }
     
+    # Dictionary storing all the prices of the sku
     price = {
         'A': 50, 'B': 30, 'C': 20, 'D': 15,
         'E': 40, 'F': 10, 'G' : 20, 'H': 10, 
@@ -21,12 +23,14 @@ class CheckoutSolution:
         'Y': 10, 'Z': 50
     }
     
+    # Dictionary storing all the cross sku free item offers
     free_items_offer={
         'E': (2, 'B', 1),
         'N': (3, 'M', 1),
         'R': (3, 'Q', 1),
     }
     
+    # Dictionary storing all the self sku item offers.
     self_free_item_offer={
         'F': (2,1),
         'U': (3,1)
@@ -76,7 +80,7 @@ class CheckoutSolution:
     
 
     #Unit Testing
-    '''
+
 if __name__ == "__main__":
     import unittest
     class TestCheckoutSolutuon(unittest.TestCase):
@@ -123,6 +127,17 @@ if __name__ == "__main__":
         def test_6F(self):
             self.assertEqual(self.checkout.checkout("FFFFFF"), 40)
             
+    #CHK 4 Unit Test
+        def h_offer_test(self):
+            self.assertEqual(self.checkout.checkout('HHHHHHHHHH'), 80)
+        
+        def u_offer_test(self):
+            self.assertEqual(self.checkout.checkout("UUUU"), 120)
+        
+        def rq_offer_test(self):
+            self.assertEqual(self.checkout.checkout("RRRQ"), 150)
+            
             
     #unittest.main()
-    '''
+
+
