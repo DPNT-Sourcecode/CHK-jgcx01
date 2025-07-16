@@ -49,7 +49,12 @@ class CheckoutSolution:
                     num_offers =  qty // offer_qty
                     total += num_offers * offer_price
                     qty = qty % offer_qty
-            total += qty * self.price[sku]
+                    
+            if sku == 'F':
+                free_fs = qty //3
+                total += (qty - free_fs) * self.price['F']
+            else:
+                total += qty * self.price[sku]
         
         return total 
                 
@@ -97,4 +102,5 @@ if __name__ == "__main__":
             
     #unittest.main()
     '''
+
 
