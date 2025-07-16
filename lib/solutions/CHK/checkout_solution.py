@@ -46,17 +46,28 @@ class CheckoutSolution:
     
     
     #Unit Testing 
-    class TestCheckoutSolutuon(unittest.TetstCase):
+if __name__ == "__main__":
+    import unittest
+    class TestCheckoutSolutuon(unittest.TestCase):
         
         def setUp(self):
             self.checkout = CheckoutSolution()
-            
+        #Checking result for single item 
         def single_item(self):
             self.assertEqual(self.checkout.checkout("A"), 50)
-            
+        
+        #Checkig result for special offers applied
         def special_offer(self):
             self.assertEqual(self.checkout.checkout("AAD"), 130 + 15)
             
+        #Checking result for invalid items 
         def invalid_chracter(self):
             self.assertEqual(self.checkout.checkout("AXHY"), -1)
+            
+        #Checking result for no items 
+        def invalid_chracter(self):
+            self.assertEqual(self.checkout.checkout(" "), -1)
+            
+            
+    unittest.main()
 
