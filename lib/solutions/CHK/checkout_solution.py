@@ -23,6 +23,13 @@ class CheckoutSolution:
     
     free_items_offer={
         'E': (2, 'B', 1),
+        'N': (3, 'M', 1),
+        'R': (3, 'Q', 1),
+    }
+    
+    self_free_item_offer={
+        'F': (2,1),
+        'U': (3,1)
     }
 
     # skus = unicode string
@@ -31,7 +38,6 @@ class CheckoutSolution:
         if not isinstance(skus,str):
             return -1
 
-        total = 0
         count = {}
         
         #Looping to count the frequency of skus
@@ -117,4 +123,5 @@ if __name__ == "__main__":
             
     #unittest.main()
     '''
+
 
