@@ -17,7 +17,6 @@ class CheckoutSolution:
     
     free_items_offer={
         'E': (2, 'B', 1),
-        'F': (2, 'F', 1),
     }
 
     # skus = unicode string
@@ -48,7 +47,7 @@ class CheckoutSolution:
                 for offer_qty, offer_price in self.multi_special_offers[sku]:
                     num_offers =  qty // offer_qty
                     total += num_offers * offer_price
-                    qty = qty % offer_qty
+                    qty %= offer_qty
                     
             if sku == 'F':
                 free_fs = qty //3
@@ -62,7 +61,7 @@ class CheckoutSolution:
     
 
     #Unit Testing
-    '''
+
 if __name__ == "__main__":
     import unittest
     class TestCheckoutSolutuon(unittest.TestCase):
@@ -99,8 +98,19 @@ if __name__ == "__main__":
         def test_2E_and_2B(self):
             self.assertEqual(self.checkout.checkout("EEBB"), 130)
             
+    #CHK 3 Unit Test
+        def test_2F(self):
+            self.assertEqual(self.checkout.checkout("FF"),20)
+            
+        def test_3F(self):
+            self.assertEqual(self.checkout.checkout("FFF"), 20)
+        
+        def test_6F(self):
+            self.assertEqual(self.checkout.checkout("FFFFFF"), 40)
+            
             
     #unittest.main()
-    '''
+
+
 
 
