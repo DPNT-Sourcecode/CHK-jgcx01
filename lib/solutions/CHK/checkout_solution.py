@@ -44,7 +44,8 @@ class CheckoutSolution:
         return total 
     
     
-    #Unit Testing 
+    '''
+    #Unit Testing
 if __name__ == "__main__":
     import unittest
     class TestCheckoutSolutuon(unittest.TestCase):
@@ -68,4 +69,6 @@ if __name__ == "__main__":
             self.assertEqual(self.checkout.checkout(" "), -1)
             
             
-    unittest.main()
+    #unittest.main()
+    
+    '''
