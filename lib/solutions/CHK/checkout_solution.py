@@ -12,6 +12,7 @@ class CheckoutSolution:
         'C': 20,
         'D': 15,
         'E': 40,
+        'F': 10
     }
     
     free_items_offer={
@@ -95,3 +96,4 @@ if __name__ == "__main__":
             
     #unittest.main()
     '''
+
