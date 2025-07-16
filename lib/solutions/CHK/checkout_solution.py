@@ -35,8 +35,11 @@ class CheckoutSolution:
         'F': (2,1),
         'U': (3,1)
     }
+    
+    group_offer_items = ['S', 'T', 'X', 'Y', 'Z']
+    group_offer_size = 3
+    group_offer_price = 45
 
-    # skus = unicode string
     def checkout(self, skus):
         #Checking to see if input is a string and upper case
         if not isinstance(skus,str):
@@ -57,6 +60,17 @@ class CheckoutSolution:
             if trigger_sku in count and target_sku in count:
                 times = count[trigger_sku] //required_qty
                 count[target_sku] = max(0, count[target_sku] - times * free_qty)
+                
+        group_items = []
+        for item in self.group_offer_items:
+            group_items += [item] * count.get(item, 0)
+        group_items.sort(key= lambda i : self.price[i], reverse = True)
+        
+        group_sets = len(group_items) // self.group_offer_size
+        total += group_sets * self.group_offer_price
+        
+        for i in range(group_sets * self.group_offer_size):
+            count[group_items[i]] -= 1
                 
         for sku, qty in count.items():
             if sku in self.multi_special_offers:
@@ -140,5 +154,6 @@ if __name__ == "__main__":
             
     #unittest.main()
 '''
+
 
 
