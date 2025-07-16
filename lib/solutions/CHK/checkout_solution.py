@@ -53,12 +53,14 @@ class CheckoutSolution:
                 
     
     
-    '''
+
     #Unit Testing
+    '''
 if __name__ == "__main__":
     import unittest
     class TestCheckoutSolutuon(unittest.TestCase):
         
+    #CHK 1 UNit Test
         def setUp(self):
             self.checkout = CheckoutSolution()
         #Checking result for single item 
@@ -76,11 +78,24 @@ if __name__ == "__main__":
         #Checking result for no items 
         def invalid_chracter(self):
             self.assertEqual(self.checkout.checkout(" "), -1)
+    
+    #CHK 2 UNit Test
+        def test_special_offer_3A(self):
+            self.assertEqual(self.checkout.checkout("AAA"), 130)
+    
+        def test_special_offer_5A(self):
+            self.assertEqual(self.checkout.checkout("AAAAA"), 130)
+            
+        def free_items_2E_gives_1B(self):
+            self.assertEqual(self.checkout.checkout("EEB"), 130)
+            
+        def test_2E_and_2B(self):
+            self.assertEqual(self.checkout.checkout("EEBB"), 130)
             
             
     #unittest.main()
-    
     '''
+
 
 
 
