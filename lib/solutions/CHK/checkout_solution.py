@@ -16,7 +16,7 @@ class CheckoutSolution:
     # skus = unicode string
     def checkout(self, skus):
         #Checking to see if input is a string and upper case
-        if not isinstance(skus,str) or not skus.alpha():
+        if not isinstance(skus,str) or skus == "" or not skus.alpha():
             return -1
 
         skus = skus.upper()
@@ -73,3 +73,4 @@ if __name__ == "__main__":
     #unittest.main()
     
     '''
+
