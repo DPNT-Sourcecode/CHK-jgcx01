@@ -48,25 +48,28 @@ class CheckoutSolution:
         
         total = 0
         
-        #Adding free_item_offers
+        #Adding free_item_offers for cross items
         for trigger_sku, (required_qty, target_sku, free_qty) in self.free_items_offer.items():
             if trigger_sku in count and target_sku in count:
-                free_items = (count[trigger_sku] // required_qty) * free_qty
-                count[target_sku] = max(0, count[target_sku] - free_items)
+                times = count[trigger_sku] //required_qty
+                count[target_sku] = max(0, count[target_sku] - times * free_qty)
                 
         for sku, qty in count.items():
             if sku in self.multi_special_offers:
                 for offer_qty, offer_price in self.multi_special_offers[sku]:
-                    num_offers =  qty // offer_qty
-                    total += num_offers * offer_price
-                    qty %= offer_qty
+                    offer_count = qty // offer_qty
+                    total += offer_count * offer_price
+                    qty = qty % offer_qty
                     
-            if sku == 'F':
-                free_fs = qty //3
-                total += (qty - free_fs) * self.price['F']
+            if sku in self.self_free_item_offer:
+                trigger_qty, free_qty = self.self_free_item_offer[sku]
+                group_size = trigger_qty + free_qty
+                groups = qty // group_size
+                remaining = qty % group_size
+                total += (groups * trigger_qty + min(remaining, trigger_qty)) * self.price[sku]
             else:
                 total += qty * self.price[sku]
-        
+                
         return total 
                 
     
@@ -123,5 +126,3 @@ if __name__ == "__main__":
             
     #unittest.main()
     '''
-
-
