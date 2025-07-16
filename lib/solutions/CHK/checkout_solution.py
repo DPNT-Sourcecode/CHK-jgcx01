@@ -36,7 +36,7 @@ class CheckoutSolution:
         total = 0
         
         #Adding free_item_offers
-        for sku, (required_qty_sku, offer_sku, free_qty_sku) in self.free_items_offer:
+        for sku, (required_qty_sku, offer_sku, free_qty_sku) in self.free_items_offer.items():
             if sku in count and offer_sku in count:
                 offer_times = count[sku] // required_qty_sku
                 count[sku] = max(0, count[offer_sku] - offer_times * free_qty_sku)
@@ -84,3 +84,4 @@ if __name__ == "__main__":
     #unittest.main()
     
     '''
+
