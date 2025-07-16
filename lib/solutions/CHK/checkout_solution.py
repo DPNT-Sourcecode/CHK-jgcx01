@@ -150,8 +150,21 @@ if __name__ == "__main__":
         
         def rq_offer_test(self):
             self.assertEqual(self.checkout.checkout("RRRQ"), 150)
+    
+    #CHK 5 Unit Test
+        def test_group_discount_6(self):
+            self.assertEqual(self.checkout.checkout("SXYZZT"), 90)
+        
+        def test_group_offer_with_remiander(self):
+            self.assertEqual(self.checkout.checkout("STXYZ"), 82)
+        
+        def group_dicount_and_individuals(self):
+            self.assertEqual(self.checkout.checkout("STXAB"), 45 + 50 + 30)
+    
+    
             
             
     #unittest.main()
 '''
+
 
